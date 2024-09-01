@@ -156,4 +156,4 @@ cython_debug/
 .DS_Store
 my_tennis_club/db.sqlite3
 my_tennis_club/productionfiles
-my_tennis_club/.DS_Store
+my_tennis_club/mystaticfiles/.DS_Store
