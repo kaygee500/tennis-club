@@ -1,5 +1,5 @@
 from django.http import HttpResponse , JsonResponse
-from django.views.decorators.http import require_safe, require_http_methods
+from django.views.decorators.http import require_safe, require_http_methods,require_GET, require_POST
 from django.template import loader
 from .models import Member
 from .serializers import MembersSerializer
@@ -41,7 +41,8 @@ def testing(request):
     }
     return HttpResponse(template.render(context, request))
 
-@require_http_methods(["GET", "POST"])
+@require_GET
+@require_POST
 @api_view (['GET', 'POST'])
 def members_list(request, format=None):
     if request.method == 'GET':
