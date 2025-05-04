@@ -41,6 +41,7 @@ def testing(request):
     }
     return HttpResponse(template.render(context, request))
 
+@require_http_methods(["GET", "POST"])
 @api_view (['GET', 'POST'])
 def members_list(request, format=None):
     if request.method == 'GET':
@@ -53,7 +54,8 @@ def members_list(request, format=None):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-
+        
+@require_http_methods(["GET", "PUT", "DELETE"])
 @api_view (['GET', 'PUT','DELETE'])
 def member_detail(request, id, format = None):
     try:
