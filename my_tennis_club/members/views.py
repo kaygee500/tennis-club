@@ -1,5 +1,5 @@
 from django.http import HttpResponse , JsonResponse
-from django.views.decorators.http import require_safe, require_http_methods,require_GET, require_POST
+from django.views.decorators.http import require_safe, require_GET, require_POST
 from django.template import loader
 from .models import Member
 from .serializers import MembersSerializer
@@ -56,7 +56,6 @@ def members_list(request, format=None):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         
-@require_http_methods(["GET", "PUT", "DELETE"])
 @api_view (['GET', 'PUT','DELETE'])
 def member_detail(request, id, format = None):
     try:
