@@ -1,4 +1,5 @@
 from django.http import HttpResponse , JsonResponse
+from django.views.decorators.http import require_safe
 from django.template import loader
 from .models import Member
 from .serializers import MembersSerializer
@@ -7,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 # Create your views here.
+@require_safe
 def members(request):
     mymembers = Member.objects.all().values()
     template = loader.get_template('all_members.html')
@@ -15,6 +17,7 @@ def members(request):
     }
     return HttpResponse(template.render(context, request))
 
+@require_safe
 def details(request, id):
     mymember = Member.objects.get(id=id)
     template = loader.get_template('details.html')
@@ -23,11 +26,12 @@ def details(request, id):
     }
     return HttpResponse(template.render(context, request))
 
+@require_safe
 def main(request):
     template = loader.get_template('main.html')
     return HttpResponse(template.render())
 
-
+@require_safe
 def testing(request):
     template = loader.get_template('template.html')
     context={
