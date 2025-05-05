@@ -6,7 +6,7 @@
 
 
 {% block content %}
-  <div class="mycard" onclick="window.location = 'details/'" style="cursor: pointer;" role="button">
+  <div class="mycard" onclick="window.location = 'details/'" style="cursor: pointer;" role="application" onkeydown="handleKeyDown(event)">
     <h1>Members</h1>
     <ul>
       {% for x in mymembers %}
