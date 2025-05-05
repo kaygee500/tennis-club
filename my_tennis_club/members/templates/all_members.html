@@ -6,11 +6,11 @@
 
 
 {% block content %}
-  <div class="mycard">
+  <div class="mycard" onclick="window.location = 'details/'" style="cursor: pointer;">
     <h1>Members</h1>
     <ul>
       {% for x in mymembers %}
-        <li onclick="window.location = 'details/{{ x.slug }}'">{{ x.firstname }} {{ x.lastname }}</li>
+        <li><a href="details/{{ x.slug }}" style="text-decoration:none;">{{ x.firstname }} {{ x.lastname }}</a> </li>
       {% endfor %}
     </ul>
   </div>
