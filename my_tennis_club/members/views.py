@@ -1,5 +1,5 @@
 from django.http import HttpResponse , JsonResponse
-from django.views.decorators.http import require_safe, require_GET, require_POST
+from django.views.decorators.http import require_safe
 from django.template import loader
 from .models import Member
 from .serializers import MembersSerializer
@@ -18,8 +18,8 @@ def members(request):
     return HttpResponse(template.render(context, request))
 
 @require_safe
-def details(request, id):
-    mymember = Member.objects.get(id=id)
+def details(request, slug):
+    mymember = Member.objects.get(slug=slug)
     template = loader.get_template('details.html')
     context={
         'mymember': mymember
@@ -41,8 +41,6 @@ def testing(request):
     }
     return HttpResponse(template.render(context, request))
 
-@require_GET
-@require_POST
 @api_view (['GET', 'POST'])
 def members_list(request, format=None):
     if request.method == 'GET':
