@@ -9,7 +9,7 @@ cffi==1.17.1
 charset-normalizer==3.3.2
 clr_loader==0.2.7.post0
 colorama==0.4.6
-Django==4.2.21
+Django==4.2.28
 django-environ==0.12.0
 django-filter==24.3
 djangorestframework==3.15.2
