@@ -4,7 +4,7 @@ awsebcli==3.23.3
 blessed==1.20.0
 botocore==1.38.7
 cement==2.10.14
-certifi==2024.8.30
+certifi==2026.10.19
 cffi==1.17.1
 charset-normalizer==3.3.2
 clr_loader==0.2.7.post0
